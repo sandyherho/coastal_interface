@@ -1,0 +1,48 @@
+Provenance of the results and open items
+========================================
+
+Taken from earlier work (to be cited; references to be checked against the original papers before submission):
+  - Ghyben-Herzberg relation (Badon Ghyben 1888; Herzberg 1901).
+  - Dupuit sharp-interface (two-fluid) formulation and the steady
+    single-potential lens (Strack 1976, Water Resources Research;
+    Bear 1972, Dynamics of Fluids in Porous Media).
+  - Linear tidal propagation in coastal aquifers (Jacob 1950;
+    Ferris 1951) and the freshwater-only tidal overheight
+    (Philip 1973; Nielsen 1990, Water Resources Research).
+  - Flux- versus head-controlled responses to sea-level change
+    (Werner and Simmons 2009, Ground Water) and seawater-intrusion
+    overshoot after a step change (Watson et al. 2010, Water
+    Resources Research; Morgan 2014, PhD thesis, Flinders
+    University, sand-tank tests).
+  - Wave setup and run-up raising coastal water tables (Kang and
+    Nielsen, ICCE proceedings).
+  - TR-BDF2 (Bank et al. 1985; Hosea and Shampine 1996).
+
+Believed new here (a literature search is still needed before
+claiming priority):
+  - The exact barotropic/baroclinic split of the linearized
+    two-layer aquifer, with D_1/D_0 <= delta/4.
+  - The Wronskian identity for two-mode diffusion, which gives the
+    rectified means in closed form, independent of K, n and omega.
+  - The result that a tide thins the freshwater layer by A^2/(4H_s)
+    and raises the effective saltwater head by A^2/(4B) in the
+    thin-lens limit, so that its effect on the toe equals a mean
+    sea-level rise of millimeters.
+  - The two-parameter effective-boundary closure (phi_e, s) that
+    carries the tidal layer to the far-field lens.
+  - The toe frequency response to periodic setup, including the
+    gain above the quasi-static value in flux-controlled aquifers.
+
+Open items:
+  - The shoreline shift s is fitted, not derived.
+  - The Dupuit assumption fails within a few aquifer thicknesses of
+    the shore; the tidal interface layer (L_1 of order 1 m at M2)
+    lies well inside that zone, so tidal-band results there are
+    qualitative. The mean far-field results rest on the mean lens,
+    whose horizontal scale (77 m) exceeds B (20 m) by about four.
+  - No mixing zone, no seepage face, no wave run-up infiltration,
+    no upper saline plume, no beach slope, no recharge.
+  - Equal viscosities and specific yield equal to the porosity that
+    the interface sweeps.
+  - Parameter values are illustrative ranges for clean sands, not
+    measurements of any site.

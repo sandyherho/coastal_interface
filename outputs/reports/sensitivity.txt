@@ -1,0 +1,17 @@
+Sensitivity of the tidal effective boundary (A = 0.5 m, flux-controlled)
+======================================================================
+
+Base depth and conductivity are changed together with the discharge so that the untided toe stays at 76.9 m.
+
+case                  4B phi_e / A^2   s / A^2 (1/m)   toe shift (m)   phi spread in fit window (mm)
+reference             1.0732           0.3035          0.1017          0.0150
+B = 10 m              1.0534           0.8764          0.3162          0.0274
+B = 30 m              1.0829           0.1565          0.0507          0.0094
+K = 15 m/d            1.0581           0.2360          0.0832          0.0136
+n = 0.2               1.0819           0.3484          0.1132          0.0141
+diurnal tide          1.0874           0.3793          0.1210          0.0116
+grid halved           1.0729           0.3025          0.1014          0.0154
+64 steps per tide     1.0732           0.3035          0.1017          0.0150
+
+The thin-lens theory predicts 4B phi_e / A^2 = 1 for every case; the departure measures the effect of the finite
+freshwater thickness inside the tidal layer. The shoreline shift s has no theory here and is reported as fitted.

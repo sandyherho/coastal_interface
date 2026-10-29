@@ -1,0 +1,60 @@
+Key numbers
+===========
+
+Reference aquifer: K = 30 m/d, n = 0.30, delta = 0.025, B = 20 m, Q = 2 m2/d per m of shoreline, domain 300 m.
+
+Modes of uniform layers H_f = H_s = 10 m:
+   D_0 = 2012.58 m2/d (K H / n = 2000.0),  D_1 = 12.422 m2/d (delta K H_f H_s / (n H) = 12.50)
+   D_1 / D_0 = 0.00617  (bound delta/4 = 0.00625)
+   decay lengths at M2         : L_0 =    18.2 m,  L_1 =   1.43 m
+   decay lengths at spring-neap: L_0 =    97.3 m,  L_1 =   7.64 m
+   decay lengths at annual     : L_0 =   483.7 m,  L_1 =  38.00 m
+
+Tidal oscillation in the lens (M2, A = 0.5 m, flux-controlled):
+   largest interface amplitude / A = 1.577
+   largest instantaneous Ghyben-Herzberg amplitude / A = 28.6
+
+Rectified means of uniform layers (exact, second order):
+   mean water-table rise  A^2 / [4 (H + delta H_s)]
+   mean interface rise    A^2 / [4 (H + delta H_s)] + A^2 / (4 H_s)
+   freshwater thickness   - A^2 / (4 H_s); independent of K, n and frequency
+
+Lens: effective boundary fitted outside the tidal layer
+   phi_e = c_phi A^2 / (4B) with c_phi = 1.0686
+   s     = c_s A^2        with c_s   = 0.2885 1/m
+   A (m)   kind   phi_e (mm)   s (m)    toe shift (m)   closure (m)
+   0.25    flux      0.839   0.0193      0.0257          0.0245
+   0.50    flux      3.354   0.0759      0.1017          0.0978
+   0.75    flux      7.531   0.1663      0.2243          0.2201
+   1.00    flux     13.353   0.2855      0.3884          0.3913
+   0.25    head      0.839   0.0192      0.0873          0.0857
+   0.50    head      3.352   0.0757      0.3485          0.3434
+   0.75    head      7.526   0.1660      0.7819          0.7754
+   1.00    head     13.340   0.2853      1.3861          1.3852
+
+Wave setup (steady):
+   flux-controlled: toe moves 0.77 m landward for 0.1 m of mean setup
+   head-controlled: toe moves 9.66 m landward for 0.1 m of mean setup
+
+Tide against setup (toe shifts, closure):
+   flux-controlled: a 1 m M2 tide moves the toe as far as a mean setup of 5.08 cm
+   head-controlled: a 1 m M2 tide moves the toe as far as a mean setup of 1.58 cm
+
+Setup cycles (5 cm amplitude), toe excursion per meter of setup:
+   period (d)   flux gain   flux lag (d)   head gain   head lag (d)
+         15.0        1.70            3.5        1.68            3.4
+         30.0        3.06            6.1        2.74            6.0
+         61.0        5.28           10.4        4.24           12.2
+        122.0        8.22           17.2        7.69           28.0
+        182.6       10.81           21.9       12.37           43.6
+        365.2       14.92           21.1       27.62           78.7
+        730.5       15.11           -4.5       50.79          117.7
+       1461.0       12.16          -64.9       71.74          146.7
+       2922.0        9.40         -133.2       82.09          159.5
+       5844.0        8.19         -171.5       85.45          163.6
+   quasi-static gain, flux: 7.69 m/m
+   quasi-static gain, head: 86.48 m/m
+
+Seasonal run (setup 0.2 m mean, 0.15 m annual amplitude, M2 0.5 m), last year:
+   flux: toe range 4.39 m (quasi-static 2.33 m), mean 78.56 m (quasi-static 78.42 m, untided start 76.87 m)
+   head: toe range 7.43 m (quasi-static 43.29 m), mean 99.35 m (quasi-static 100.90 m, untided start 76.88 m)

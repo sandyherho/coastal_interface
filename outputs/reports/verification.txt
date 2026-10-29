@@ -1,0 +1,80 @@
+Verification of the two-layer sharp-interface solver
+======================================================
+
+1. Spatial order, steady manufactured solution (graded grid, cells halved)
+   cells    max|h error|   order   max|zeta error|  order
+      39    1.403e-03        -   4.492e-02          -
+      78    3.511e-04        2   1.236e-02       1.86
+     156    8.779e-05        2   3.251e-03       1.93
+     312    2.195e-05        2   8.343e-04       1.96
+     624    5.487e-06        2   2.113e-04       1.98
+
+2. Temporal order, TR-BDF2, periodic manufactured solution over one day
+   steps/day   max error    order
+          25   5.857e-04       -
+          50   1.459e-04       2
+         100   3.642e-05       2
+         200   9.092e-06       2
+         400   2.266e-06       2
+
+3. Discrete steady lens against Strack-Glover (reference grid)
+   case                    toe solver (m)   toe exact (m)   difference
+   flux, Q = 1 m2/d            153.750000     153.750000   -8.53e-14
+   flux, Q = 2 m2/d             76.875000      76.875000   -2.84e-14
+   flux, Q = 3 m2/d             51.250000      51.250000   +0.00e+00
+   flux, setup 0.0 m           76.875000      76.875000   -2.84e-14
+   flux, setup 0.1 m           77.645672      77.645672   +1.28e-13
+   flux, setup 0.2 m           78.420187      78.420187   -1.42e-14
+   flux, setup 0.3 m           79.198547      79.198547   +2.84e-14
+   flux, setup 0.4 m           79.980750      79.980750   -1.42e-14
+   flux, setup 0.5 m           80.766797      80.766797   -9.95e-14
+   head, setup 0.0 m           76.875076      76.875000   +7.59e-05
+   head, setup 0.1 m           86.538132      86.537991   +1.40e-04
+   head, setup 0.2 m           98.769109      98.769089   +1.97e-05
+   head, setup 0.3 m          114.748300     114.748282   +1.86e-05
+   head, setup 0.4 m          136.509341     136.509217   +1.25e-04
+   head, setup 0.5 m          167.881757     167.881617   +1.40e-04
+
+4. Linear tidal response, uniform layers 10 m + 10 m, closed at 60 m, A = 2 cm
+   period (d)   max |zeta_hat - theory| / A   max |h_hat - theory| / A
+         0.25   2.637e-04                    4.486e-04
+            1   2.548e-04                    5.038e-04
+        14.77   2.859e-04                    5.704e-04
+           60   2.282e-04                    1.655e-04
+
+5. Rectified means, uniform layers, M2, at the closed end x = 60 m
+   theory (60 m) integrates the exact tidal fluxes of the closed domain; closed form is the
+   semi-infinite result A^2/[4(H + delta H_s)] and A^2/[4(H + delta H_s)] + A^2/(4 H_s)
+   A (m)  quantity   solver         theory (60 m)  rel. diff.   closed form
+   0.05   h mean     3.069642e-05   3.069596e-05   +1.5e-05    3.086420e-05
+   0.05   zeta mean  9.290493e-05   9.286636e-05   +4.2e-04    9.336420e-05
+   0.10   h mean     1.227877e-04   1.227838e-04   +3.1e-05    1.234568e-04
+   0.10   zeta mean  3.714306e-04   3.714654e-04   -9.4e-05    3.734568e-04
+   0.20   h mean     4.911829e-04   4.911353e-04   +9.7e-05    4.938272e-04
+   0.20   zeta mean  1.482702e-03   1.485862e-03   -2.1e-03    1.493827e-03
+   0.40   h mean     1.965241e-03   1.964541e-03   +3.6e-04    1.975309e-03
+   0.40   zeta mean  5.882914e-03   5.943447e-03   -1.0e-02    5.975309e-03
+
+6. Volume budgets of the tidal lens runs (boundary exchange integrated with the TR-BDF2 weights)
+   run                                    fresh residual (m2)   salt residual (m2)   step halvings
+   flux, A = 0.25 m                         -5.06e-10            +3.33e-09            0
+   flux, A = 0.5 m                          -1.03e-08            +7.71e-09            0
+   flux, A = 0.75 m                         -8.61e-08            +1.98e-08            0
+   flux, A = 1 m                            -7.18e-08            +8.37e-09            0
+   head, A = 0.25 m                         -4.98e-10            +3.33e-09            0
+   head, A = 0.5 m                          -1.02e-08            +7.72e-09            0
+   head, A = 0.75 m                         -8.64e-08            +2.01e-08            0
+   head, A = 1 m                            -7.26e-08            +9.52e-09            0
+   flux, A = 0.5 m, B = 10 m                -3.16e-08            +4.45e-09            0
+   flux, A = 0.5 m, B = 30 m                +1.20e-08            +4.82e-09            0
+   flux, A = 0.5 m, K = 15 m/d              +1.35e-08            +1.61e-09            0
+   flux, A = 0.5 m, n = 0.2                 -1.04e-08            +5.18e-09            0
+   flux, A = 0.5 m, diurnal tide            -1.32e-08            +3.25e-09            0
+   flux, A = 0.5 m, grid halved             -8.65e-08            +1.19e-08            0
+   flux, A = 0.5 m, 64 steps per tide       -1.91e-08            +4.49e-09            0
+
+7. Numerical sensitivity of the effective boundary (A = 0.5 m, flux-controlled)
+   case                  4B phi_e / A^2   s / A^2 (1/m)   toe shift (m)
+   reference             1.07317          0.30347          0.10169
+   grid halved           1.07285          0.30245          0.10142
+   64 steps per tide     1.07317          0.30353          0.10171
